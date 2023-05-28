@@ -9,3 +9,10 @@
 body {
   background: #f2f2f2;
 }
+
+.assistantBuble {
+  @apply bg-blue-500 p-4 rounded-xl text-white font-thin flex my-2 text-left;
+}
+.userBuble {
+  @apply bg-green-500 p-4 rounded-xl text-white font-thin flex my-2 self-end text-right;
+}
