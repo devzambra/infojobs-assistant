@@ -4,7 +4,7 @@ import { Logo } from "~/components/icons/logo";
 
 export const Header = component$(() => {
   return (
-    <header class="bg-white shadow-md shadow-gray-200 w-full pt-safe">
+    <header class="bg-white shadow-md shadow-gray-200 w-full">
       <div class="flex justify-between items-center p-4 max-w-screen-xl m-auto">
         <div class="w-12">
           <Logo />
