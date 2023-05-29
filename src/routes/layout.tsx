@@ -15,7 +15,7 @@ export default component$(() => {
   return (
     <div class="flex flex-col h-screen items-center">
       <Header />
-      <main class="flex-1 w-screen-xl max-w-screen-xl">
+      <main class="flex-1 w-screen-xl max-w-screen-xl px-safe">
         <Slot />
       </main>
       <Footer />

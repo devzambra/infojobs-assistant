@@ -37,6 +37,9 @@ devDependencies:
   tailwindcss:
     specifier: ^3.3.1
     version: 3.3.1(postcss@8.4.23)
+  tailwindcss-safe-area:
+    specifier: ^0.2.2
+    version: 0.2.2
   typescript:
     specifier: 5.0.4
     version: 5.0.4
@@ -7080,6 +7083,10 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+    dev: true
+
+  /tailwindcss-safe-area@0.2.2:
+    resolution: {integrity: sha512-sygGuEFFBBzjqR6d2gB9hDW9xX/4yLt7ymhR2E/XVa6Ar4B86Net8/9EmPAsqFUvXY40+W0HnXwFavFJEM+eCQ==}
     dev: true
 
   /tailwindcss@3.3.1(postcss@8.4.23):
