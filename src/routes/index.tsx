@@ -19,8 +19,9 @@ export default component$(() => {
   const isMac = useSignal(false);
 
   useVisibleTask$(() => {
+    isMac.value = navigator.userAgent.search("Mac") > -1;
+
     const listener = (event: KeyboardEvent) => {
-      isMac.value = navigator.userAgent.search("Mac") > -1;
       if (
         event.key === "k" &&
         ((isMac && event.metaKey) || (!isMac && event.ctrlKey))
