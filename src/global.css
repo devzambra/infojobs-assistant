@@ -8,8 +8,6 @@
 
 body {
   background: #f2f2f2;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .assistantBuble {
@@ -17,8 +15,4 @@ body {
 }
 .userBuble {
   @apply bg-green-500 p-4 rounded-xl text-white font-thin flex my-2 self-end text-right;
-}
-.safe-height {
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
