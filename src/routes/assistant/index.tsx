@@ -1,9 +1,9 @@
 import { $, component$, useContext, useSignal } from "@builder.io/qwik";
-import { Link, useNavigate } from "@builder.io/qwik-city";
+import { Link, server$, useNavigate } from "@builder.io/qwik-city";
 
 import { AssistantContext, QUESTIONS } from "~/state/assistant.state";
 
-const fetchOffers = async (params: any) => {
+const fetchOffers = server$(async function (params: any) {
   let queryString = "";
   const prefix = () => (queryString.length == 0 ? "?" : "&");
   if (params.query) queryString += prefix() + "q=" + params.query;
@@ -15,10 +15,10 @@ const fetchOffers = async (params: any) => {
 
   try {
     const response = await fetch(
-      `${import.meta.env.PUBLIC_API_ROOT}${queryString.replace(/\s/gi, "-")}`,
+      `${this.env.get("API_ROOT")}${queryString.replace(/\s/gi, "-")}`,
       {
         headers: {
-          Authorization: `Basic ${import.meta.env.PUBLIC_API_TOKEN}`,
+          Authorization: `Basic ${this.env.get("API_TOKEN")}`,
         },
       }
     );
@@ -26,7 +26,7 @@ const fetchOffers = async (params: any) => {
   } catch (e) {
     return null;
   }
-};
+});
 
 export default component$(() => {
   const state = useContext(AssistantContext);
