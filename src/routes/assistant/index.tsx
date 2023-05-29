@@ -13,15 +13,19 @@ const fetchOffers = async (params: any) => {
   if (params.salaryPeriod)
     queryString += prefix() + "salaryPeriod=" + params.salaryPeriod;
 
-  const response = await fetch(
-    `${import.meta.env.PUBLIC_API_ROOT}${queryString.replace(/\s/gi, "-")}`,
-    {
-      headers: {
-        Authorization: `Basic ${import.meta.env.PUBLIC_API_TOKEN}`,
-      },
-    }
-  );
-  return response.ok ? response.json() : null;
+  try {
+    const response = await fetch(
+      `${import.meta.env.PUBLIC_API_ROOT}${queryString.replace(/\s/gi, "-")}`,
+      {
+        headers: {
+          Authorization: `Basic ${import.meta.env.PUBLIC_API_TOKEN}`,
+        },
+      }
+    );
+    return response.ok ? response.json() : null;
+  } catch (e) {
+    return null;
+  }
 };
 
 export default component$(() => {
