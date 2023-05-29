@@ -75,7 +75,7 @@ export default component$(() => {
 
   return (
     <div class="backdrop-blur-md bg-white/30 flex flex-col h-screen justify-center items-center z-10 absolute top-0 bottom-0 left-0 right-0">
-      <div class="backdrop-blur-xl bg-gray-100/30 shadow-md shadow-gray-200 sm:w-[95%] w-full sm:h-[95%] h-full border-white border-2 opacity-100 rounded-xl flex flex-col  mx-auto max-w-screen-xl">
+      <div class="backdrop-blur-xl bg-gray-100/30 shadow-md shadow-gray-200 sm:w-[95%] w-full sm:h-[95%] h-screen border-white border-2 opacity-100 rounded-xl flex flex-col  mx-auto max-w-screen-xl">
         {isLoading.value || hasError.value ? (
           <>
             <div
