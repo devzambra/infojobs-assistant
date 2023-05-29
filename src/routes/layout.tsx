@@ -18,9 +18,6 @@ export default component$(() => {
       <main class="flex-1 w-screen-xl max-w-screen-xl">
         <Slot />
       </main>
-      {/* <span class={assistantActive.value ? "visible" : "hidden"}>
-        <Assistant />
-      </span> */}
       <Footer />
     </div>
   );

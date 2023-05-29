@@ -1,5 +1,11 @@
-import { component$, useContext } from "@builder.io/qwik";
+import {
+  component$,
+  useContext,
+  useSignal,
+  useVisibleTask$,
+} from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { useNavigate } from "@builder.io/qwik-city";
 import { Offer } from "~/components/offer/offer";
 import { AssistantContext } from "~/state/assistant.state";
 
@@ -9,6 +15,24 @@ export type AssistantForm = {
 
 export default component$(() => {
   const state = useContext(AssistantContext);
+  const nav = useNavigate();
+  const isMac = useSignal(false);
+
+  useVisibleTask$(() => {
+    const listener = (event: KeyboardEvent) => {
+      isMac.value = navigator.userAgent.search("Mac") > -1;
+      if (
+        event.key === "k" &&
+        ((isMac && event.metaKey) || (!isMac && event.ctrlKey))
+      ) {
+        nav("/assistant/");
+      }
+    };
+
+    window.addEventListener("keydown", listener);
+
+    return () => window.removeEventListener("keydown", listener);
+  });
 
   return (
     <>
@@ -29,7 +53,10 @@ export default component$(() => {
               </h2>
               <p class="font-thin">
                 Para comenzar a ver resultados, por favor, inicia el asistente
-                haciendo clic en "Comenzar..." o pulsando "Cmd + K"
+                haciendo clic en "Comenzar..." o pulsando{" "}
+                <span class="border p-1 rounded-md font-normal bg-blue-200">
+                  {isMac ? "⌘" : "Ctrl"} K
+                </span>
               </p>
             </article>
           </section>
